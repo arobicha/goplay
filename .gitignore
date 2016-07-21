@@ -3,6 +3,12 @@ logs
 *.log
 npm-debug.log*
 
+# Settings file
+settings.js
+
+# Project user settings
+.idea
+
 # Runtime data
 pids
 *.pid

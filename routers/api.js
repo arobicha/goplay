@@ -41,7 +41,10 @@ module.exports = {
 
         router.route('/playgrounds/:pg_id')
             .get(function(req, res) {
-
+                Playground.findById(req.params.pg_id, function (err, pg) {
+                    if ( err ) res.send(err);
+                    res.json(pg);
+                });
             })
             .put(function(req, res) {
                 Playground.findById(req.params.pg_id, function (err, pg) {
@@ -65,9 +68,6 @@ module.exports = {
                     res.json({message: 'Successfully deleted playground \'' + pg.name + '\''});
                 });
             });
-
-
-
         return router;
     }
 };
